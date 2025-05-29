@@ -3,7 +3,7 @@
 Discipline::Discipline() : CCU{ 0 }, discName{ "" } {}
 
 Discipline::Discipline(short TCU, std::string discName) {
-	this->CCU = CCU;
+	this->CCU = TCU;
 	this->discName = discName;
 }
 
