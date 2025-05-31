@@ -1,5 +1,19 @@
 #include "Cipher.h"
 
+void Cipher::splitByDots(std::vector<std::string>& vec, const std::string& input) {
+	std::string current;
+	for (char ch : input) {
+		if (ch == '.') {
+			vec.push_back(current);
+			current.clear();
+		}
+		else {
+			current += ch;
+		}
+	}
+	vec.push_back(current); // последняя часть после последней точки
+}
+
 bool Cipher::isNum(std::string s) {
 	return std::all_of(s.begin(), s.end(), isdigit);
 }
@@ -34,6 +48,21 @@ void Cipher::setParts(std::string p1, std::string p2, std::string p3) {
 	pt1 = p1;
 	pt2 = p2;
 	pt3 = p3;
+}
+
+void Cipher::setFullCipher(std::string cipher) {
+	std::vector<std::string> nameParts;
+
+	splitByDots(nameParts, cipher);
+
+	if (isNum(nameParts[0]) && isNum(nameParts[1]) && isNum(nameParts[2])) {
+		pt1 = nameParts[0];
+		pt2 = nameParts[1];
+		pt3 = nameParts[2];
+	}
+	else {
+		pt1 = "00"; pt2 = "00"; pt3 = "00";
+	}
 }
 
 Cipher& Cipher::operator=(const Cipher& other) {
