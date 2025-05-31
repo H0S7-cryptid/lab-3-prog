@@ -4,11 +4,15 @@ bool Person::tryName(std::string n) {
 	return std::all_of(n.begin(), n.end(), isalpha);
 }
 
-Person::Person() : fname{ " " }, mname{ " " }, lname{ " " } {}
+Person::Person() : fname{ "Unknown" }, mname{ " " }, lname{ " " } {}
+
+Person::Person(std::string name) {
+	setFullName(name);
+}
 
 Person::Person(std::string first, std::string middle, std::string last) {
 	if (!(tryName(first) && tryName(middle) && tryName(last))) {
-		fname = " "; mname = " "; lname = " ";
+		fname = "Unknown"; mname = " "; lname = " ";
 	}
 	fname = first;
 	mname = middle;
@@ -54,9 +58,14 @@ void Person::setFullName(std::string name) {
 		nameParts.push_back(word);
 	}
 
-	fname = nameParts[0];
-	mname = nameParts[1];
-	lname = nameParts[2];
+	if (tryName(nameParts[0]) && tryName(nameParts[1]) && tryName(nameParts[2])) {
+		fname = nameParts[0];
+		mname = nameParts[1];
+		lname = nameParts[2];
+	}
+	else {
+		fname = "Unknown"; mname = " "; lname = " ";
+	}
 }
 
 std::string Person::getFname() {
