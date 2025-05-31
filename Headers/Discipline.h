@@ -7,6 +7,7 @@ class Discipline {
 private:
 	short CCU;
 	std::string discName;
+	bool tryName(std::string n);
 public:
 	// Конструкторы
 	Discipline();
