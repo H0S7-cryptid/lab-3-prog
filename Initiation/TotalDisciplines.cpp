@@ -1,9 +1,14 @@
 #include "TotalDisciplines.h"
 
 std::ostream& operator<<(std::ostream& out, const TotalDiscip& d) {
-	out << "Current Disceplines: ";
+	if (d.getDisciplines().empty()) {
+		out << "None" << std::endl;
+		return out;
+	}
+
+	out << "Current Disceplines: " << std::endl;
 	for (Discipline data : d.getDisciplines()) {
-		out << "\t" << data;
+		out << data;
 	}
 	return out;
 }
@@ -16,6 +21,7 @@ void TotalDiscip::addDisc(Discipline d) {
 	disciplines.push_back(d);
 	uniqueDisc();
 }
+
 void TotalDiscip::addDisc(short TCU, std::string name) {
 	disciplines.push_back(Discipline{ TCU, name });
 	uniqueDisc();
