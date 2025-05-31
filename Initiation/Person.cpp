@@ -77,3 +77,9 @@ std::string Person::getMname() {
 std::string Person::getLname() {
 	return lname;
 }
+
+std::string Person::getFullName() {
+	std::string s;
+	s.append(fname + " " + mname + " " + lname);
+	return s;
+}
