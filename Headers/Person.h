@@ -10,6 +10,7 @@ private:
 public:
 	// Конструкторы без параметров и с параметрами
 	Person();
+	Person(std::string name);
 	Person(std::string first, std::string middle, std::string last);
 
 	// оператор присваивания и равенства
