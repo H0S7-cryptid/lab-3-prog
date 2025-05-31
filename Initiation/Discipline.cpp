@@ -1,10 +1,24 @@
 #include "Discipline.h"
 
-Discipline::Discipline() : CCU{ 0 }, discName{ "" } {}
+bool Discipline::tryName(std::string n) {
+	for (char ch : n) {
+		if (!std::isalpha(ch) && !std::isspace(ch)) {
+			return false; // нашёл цифру или спецсимвол
+		}
+	}
+	return true;
+}
+
+Discipline::Discipline() : CCU{ 0 }, discName{ "Unknown" } {}
 
 Discipline::Discipline(short TCU, std::string discName) {
+	if (tryName(discName)) {
+		this->discName = discName;
+	}
+	else {
+		this->discName = "Unknown";
+	}
 	this->CCU = TCU;
-	this->discName = discName;
 }
 
 Discipline& Discipline::operator=(const Discipline& d) {
@@ -20,15 +34,15 @@ bool Discipline::operator==(const Discipline& d) const {
 }
 
 std::ostream& operator<<(std::ostream& out, const Discipline& d) {
-	out << "Number of current credit units: " << d.CCU;
-	out << "Name of the discipline: " << d.discName;
-	out << std::endl;
+	out << "\tName of the discipline: " << d.discName << std::endl;
+	out << "\t\tNumber of current credit units of discipline: " << d.CCU << std::endl;
 	return out;
 }
 
 short Discipline::getCurrentCU() const {
 	return CCU;
 }
+
 std::string Discipline::getDiscName() const {
 	return discName;
 }
@@ -36,6 +50,7 @@ std::string Discipline::getDiscName() const {
 void Discipline::setCurrentCU(short ccu) {
 	CCU = ccu;
 }
+
 void Discipline::setDName(std::string name) {
 	discName = name;
 }
