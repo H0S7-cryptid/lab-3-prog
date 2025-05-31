@@ -11,14 +11,14 @@ bool Discipline::tryName(std::string n) {
 
 Discipline::Discipline() : CCU{ 0 }, discName{ "Unknown" } {}
 
-Discipline::Discipline(short TCU, std::string discName) {
+Discipline::Discipline(short CCU, std::string discName) {
 	if (tryName(discName)) {
 		this->discName = discName;
 	}
 	else {
 		this->discName = "Unknown";
 	}
-	this->CCU = TCU;
+	this->CCU = CCU;
 }
 
 Discipline& Discipline::operator=(const Discipline& d) {
