@@ -20,6 +20,7 @@ std::ostream& operator<<(std::ostream& out, const Syllabus& s) {
 	out << "Creator: " << s.creator << std::endl;
 	out << "Level of Higher Education: " << NameLvl[s.lvl] << std::endl;
 	out << s.disciplines;
+	out << "Target Number of disciplines: " << s.NumberOfDisc << std::endl;
 	out << "Target unist of all disciplines: " << s.TargetCreditUnit << std::endl;
 	out << "Total credit unit of all disciplines: " << s.TotalCreditUnit << std::endl;
 	return out;
