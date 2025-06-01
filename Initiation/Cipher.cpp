@@ -18,8 +18,14 @@ bool Cipher::isNum(std::string s) {
 	return std::all_of(s.begin(), s.end(), isdigit);
 }
 
+Cipher::Cipher() :pt1{ "00" }, pt2{ "00" }, pt3{ "00" } {}
+
 Cipher::Cipher(std::string p1, std::string p2, std::string p3) {
 	setParts(p1, p2, p3);
+}
+
+Cipher::Cipher(std::string full) {
+	setFullCipher(full);
 }
 
 void Cipher::setParts(std::string p1, std::string p2, std::string p3) {
