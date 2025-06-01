@@ -4,7 +4,7 @@ Syllabus::Syllabus() : cipher{ Cipher{} }, creator{ Person{} },
 lvl{ UNDEFL }, stat{Inactive}, name {" "}, TargetCreditUnit{0}, TotalCreditUnit{ 0 } {}
 
 Syllabus::Syllabus(Cipher cipher, Person creator, LvlOfEdu lvl,
-	std::string name, short TargetCreditUnit, short TotalCreditUnit) {
+	std::string name, short TargetCreditUnit, short NumberOfDisc) {
 	this->cipher = cipher; 
 	this->creator = creator; 
 	this->lvl = lvl; 
@@ -12,6 +12,7 @@ Syllabus::Syllabus(Cipher cipher, Person creator, LvlOfEdu lvl,
 	this->stat = Inactive; 
 	this->TargetCreditUnit = TargetCreditUnit; 
 	this->TotalCreditUnit = TotalCreditUnit; 
+	this->NumberOfDisc = NumberOfDisc; 
 }
 
 std::ostream& operator<<(std::ostream& out, const Syllabus& s) {
