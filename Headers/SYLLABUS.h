@@ -19,6 +19,7 @@ private:
 	LvlOfEdu lvl; SylStatus stat;
 	TotalDiscip disciplines;
 	std::string name;
+	short NumberOfDisc;
 	short TargetCreditUnit;
 	short TotalCreditUnit;
 public:
