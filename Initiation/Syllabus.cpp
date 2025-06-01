@@ -1,7 +1,7 @@
 #include "SYLLABUS.h"
 
 Syllabus::Syllabus() : cipher{ Cipher{} }, creator{ Person{} },
-lvl{ UNDEFL }, stat{Inactive}, name {" "}, TargetCreditUnit{0}, TotalCreditUnit{ 0 } {}
+lvl{ UNDEFL }, stat{Inactive}, name {" "}, TargetCreditUnit{0}, TotalCreditUnit{ 0 }, NumberOfDisc{ 0 } {}
 
 Syllabus::Syllabus(Cipher cipher, Person creator, LvlOfEdu lvl,
 	std::string name, short TargetCreditUnit, short NumberOfDisc) {
